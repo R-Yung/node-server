@@ -28,8 +28,9 @@ export const addUserSignUp = async(req,res) => {
         return res.status(404).json({title:"missing name or price or image" ,message:"missing data" })
     try{
         let newUser = new userModel(req.body)
-        let data = await newUser.save();
-        res.json(data);
+        let savedUser = await newUser.save();
+        res.json({ ...savedUser.toObject(), _id: undefined }); // החזרת משתמש ללא סיסמה
+        // res.json(data);
     } catch (err) {
         console.log("err");
         res.status(400).json({title:"error cannot add", message: err.message})
@@ -81,16 +82,3 @@ export const updateUser = async(req,res) => {
         res.status(400).json({title: "error cannot update by id",message:err.message})
     }
 }
-// אין צורך 
-// export const deleteById = async(req,res) => {
-//     let {_id} = req.params;
-//     try{
-//         let data = await userModel.findByIdAndDelete(_id);
-//         if(!data)
-//             return res.status(404).json({title: "error cannot get by id", message: "not valid id parameter found"})
-//         res.json(data);
-//     } catch (err) {
-//         console.log("err" + err);
-//         res.status(400).json({title: " error cannot get by id", message: "somthing wrong"})
-//     }
-// }

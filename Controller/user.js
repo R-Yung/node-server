@@ -66,7 +66,7 @@ export const updatePassword = async(req,res) => {
         console.log("err")
         res.status(400).json({title: "error cannot update by id",message:err.message})
     }
-}
+} 
 //✅
 export const updateUser = async(req,res) => {
     let {id} = req.params;

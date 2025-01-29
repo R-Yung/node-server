@@ -27,7 +27,6 @@ export const addOrder = async (req, res) => {
         let newOrder = new orderModel(req.body);
         let data = await newOrder.save();
         res.json(data);
-
     }
     catch (err) {
         console.log("err: " + err.message);

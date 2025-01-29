@@ -6,6 +6,6 @@ const userSchema = mongoose.Schema({
     phone : {type : String , require : true},
     password : {type : String , require : true},
     role : {type : String , default : "USER" }
-
+ 
 })
 export const userModel = mongoose.model("user" , userSchema);

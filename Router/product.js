@@ -7,6 +7,6 @@ router.get("/:id",getById)
 router.delete("/:id",deleteById)
 router.put("/:id",updateById)
 router.post("/",addProduct)
-
+ 
 export default router;
 

@@ -9,6 +9,6 @@ router.put("/:id",updateUser)
 router.put("/password/:id",updatePassword)
 router.post("/",addUserSignUp)
 router.post("/login/",getUserByUserNamePassword)
-
+ 
 export default router;
 

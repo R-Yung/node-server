@@ -8,6 +8,6 @@ const productSchema = mongoose.Schema({
     price : Number ,
     category : [String]
 })
-
+ 
 export const productModel = mongoose.model("product",productSchema);
 

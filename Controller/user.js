@@ -13,7 +13,7 @@ export const getAllUsers = async (req,res) => {
 export const getUserById = async (req,res) => {
     let {id} = req.params;
     try{
-        let data = await userModel.findById(id);
+        let data = await userModel.findById(id).select('-password');
         if(!data)
             return res.status(404).json({title: "error cannot get user by id",message : "not valid id parameter found"})
     res.json(data);
@@ -29,7 +29,7 @@ export const addUserSignUp = async(req,res) => {
     try{
         let newUser = new userModel(req.body)
         let savedUser = await newUser.save();
-        res.json({ ...savedUser.toObject(), _id: undefined }); // החזרת משתמש ללא סיסמה
+        res.json(savedUser);
         // res.json(data);
     } catch (err) {
         console.log("err");

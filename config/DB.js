@@ -8,4 +8,4 @@ export const connectToDB = async () => {
         console.log("cannot connect to db" + err.message)
         process.exit(1)
     }
-}
+} 

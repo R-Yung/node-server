@@ -21,7 +21,7 @@ export const getById = async (req,res) => {
         console.log("err" + err);
         res.status(400).json({title: "error cannot get product by id" , message: "somthing wrong"})
     }
-}
+} 
 //✅
 export const deleteById = async(req,res) => {
     let {id} = req.params;

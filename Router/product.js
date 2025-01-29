@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {getAllProducts,getById,deleteById,updateById,addProduct} from "../Controller/product.js"
-
+ 
 const router = Router();
 router.get("/",getAllProducts)
 router.get("/:id",getById)

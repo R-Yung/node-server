@@ -4,8 +4,8 @@ const minimalSchema = mongoose.Schema({
    price : Number,
    amount : Number,
 })
-// export const minimalModel = mongoose.model("minimalProduct", minimalSchema);
-  
+//  export const minimalModel = mongoose.model("minimalProduct", minimalSchema);
+   
 const orderSchema = mongoose.Schema({
    orderDate : {type : Date , default : new Date()},
    targetDate : {type : Date , default : new Date()},

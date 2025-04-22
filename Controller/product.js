@@ -1,12 +1,30 @@
 import { productModel } from "../Models/product.js";
 //✅
 export const getAllProducts = async (req,res) => {
+    let lim = req.query.limit || 10;
+    let page = req.query.page || 1;
     try {
-        let data = await productModel.find();
+        let data = await productModel.find().skip((page - 1)*lim).limit(lim);
         res.json(data);
     } catch (err) {
         console.log("err" + err);
         res.status(400).json({title:"error cannot get all", message:"somthing wrong"})
+    }
+}
+
+export const getTotalCount = async(req,res) => {
+    let lim = req.query.limit || 10;
+    try{
+        let data = await productModel.countDocuments();
+        res.json({
+            totalCount:data,
+            pages: Math.ceil(data/lim),
+            limit:lim
+        })
+    }
+    catch(err){
+        console.log(err)
+        res.status(400).json({title:"cannot get all" , message: err.message})
     }
 }
 //✅

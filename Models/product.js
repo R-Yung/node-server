@@ -2,9 +2,10 @@ import mongoose from "mongoose";
  
 const productSchema = mongoose.Schema({
     name: String ,
-    descraption : String ,
+    description : String ,
     prodactionDate : {type : Date ,default : new Date()},
     imageUrl : String ,
+    imageUrlHover : String,
     price : Number ,
     category : [String]
 })
